@@ -1,0 +1,35 @@
+services:
+
+  # Usage type one
+  target-services-apple:
+    image: target_image
+    environment:
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    networks:
+      - x11
+
+  # Usage type two
+  target-services-orange:
+    image: target_image
+    environment:
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    network_mode: service:novnc
+
+  novnc:
+    image: manojm003/novnc:latest
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1366
+      - DISPLAY_HEIGHT=768
+      - RUN_XTERM=no
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+
+networks:
+  x11:
