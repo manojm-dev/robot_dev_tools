@@ -2,14 +2,14 @@
 
 ## Docker Compose
 
-- Give a entrypoint script in compose to be pointed at a script
+- A script inside the image should be pointed as entrypoint in the compose file
 ```
 entrypoint: ./ros_entrypoint.sh
 ```
 
 ## Entrypoint Script
 
-- The entrypoint script should contain shebang `#!/bin/bash
+- The entrypoint script should contain shebang `#!/bin/bash`
 
 - When using mutiple long running scripts or process inside the script add `&` to send that process to background
 
