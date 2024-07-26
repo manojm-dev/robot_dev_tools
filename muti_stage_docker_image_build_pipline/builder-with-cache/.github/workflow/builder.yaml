@@ -6,13 +6,13 @@ on:
     branches:
     - main
     paths:
-    - Dockerfile.dyno
+    - Dockerfile
     - .github/workflows/workflow.yml
   pull_request:
     branches:
     - main
     paths:
-    - Dockerfile.dyno
+    - Dockerfile
     - .github/workflows/workflow.yml
   schedule:
     - cron: "0 0 * * *"
@@ -60,12 +60,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: docker/Dockerfile.dyno
+          file: Dockerfile
           cache-from: type=gha
           cache-to: type=gha,mode=max
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}:base
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}:develop
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}:deploy
           platforms: linux/amd64,linux/arm64
