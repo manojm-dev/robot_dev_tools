@@ -1,0 +1,9 @@
+[Unit]
+Description=My Simple Service
+
+[Service]
+ExecStart=/home/username/.startup/shutdown/startup.bash
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

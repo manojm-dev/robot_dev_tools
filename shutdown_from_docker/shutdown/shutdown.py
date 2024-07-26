@@ -46,7 +46,7 @@ def shutdownSystem():
     global shutdown_error_flag
     if shutdown_error_flag ==0:
         logging.info(f"System shutting down")
-    shutdown_status = os.system("shutdown now")
+    shutdown_status = os.system("sudo /sbin/shutdown now")
     # Check shutdown status
     if shutdown_status != 0 and shutdown_error_flag == 0:
         print("flag", shutdown_error_flag)
