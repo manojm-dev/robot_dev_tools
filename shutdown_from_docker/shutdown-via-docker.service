@@ -1,8 +1,8 @@
 [Unit]
-Description=My Simple Service
+Description=Docker Shutdown Service
 
 [Service]
-ExecStart=/home/username/.startup/shutdown/startup.bash
+ExecStart=/home/robotoai/.startup/shutdown/startup.bash
 Type=oneshot
 
 [Install]

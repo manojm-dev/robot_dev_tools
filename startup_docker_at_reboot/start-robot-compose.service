@@ -1,0 +1,9 @@
+[Unit]
+Description=Start Robot Docker Compose
+
+[Service]
+ExecStart= docker compose -f /home/username/.startup/docker/compose.yaml up
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

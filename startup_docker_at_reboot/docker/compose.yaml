@@ -1,0 +1,22 @@
+services:
+  ros:
+    image: test_image:latest
+
+    # capabilities
+    privileged: true
+
+    environment:
+      # ROS
+      - ROS_DOMAIN_ID=5
+      # DDS
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+
+    volumes:
+      # x11 display socket
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # devices
+      - /dev/:/dev/:rw
+      # shutdown service
+      - ../shutdown:/root/shutdown
+
+    entrypoint: ./ros_entrypoint.sh 
