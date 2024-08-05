@@ -84,3 +84,9 @@ sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm
 ```
 ACTION=="add"
 ```
+
+## 4) Resources
+
+1) https://www.clearpathrobotics.com/assets/guides/kinetic/ros/Udev%20Rules.html
+2) https://opensource.com/article/18/11/udev
+3) https://www.man7.org/linux/man-pages/man8/udevadm.8.html
