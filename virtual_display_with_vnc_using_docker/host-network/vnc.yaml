@@ -1,0 +1,18 @@
+services:
+  novnc:
+    image: manojm003/novnc:latest
+    container_name: vnc_container
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1366
+      - DISPLAY_HEIGHT=768
+      - RUN_XTERM=no
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+  
+networks:
+  x11:
+    name: x11
+    driver: bridge

@@ -1,0 +1,20 @@
+services:
+
+  # This service shares same ip address in a namespaced network of the novnc service
+  target_service:
+    image: ubuntu:22.04
+    environment:
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    network_mode: service:novnc
+
+  novnc:
+    image: manojm003/novnc:latest
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1366
+      - DISPLAY_HEIGHT=768
+      - RUN_XTERM=no
+    ports:
+      - "8080:8080"

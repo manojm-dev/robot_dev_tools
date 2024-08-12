@@ -1,18 +1,8 @@
 services:
 
-  # Usage type one
-  target-services-apple:
-    image: target_image
-    environment:
-      - DISPLAY=novnc:0.0
-    depends_on:
-      - novnc
-    networks:
-      - x11
-
-  # Usage type two
-  target-services-orange:
-    image: target_image
+  # This service has different ip address in a namespaced network
+  target-services:
+    image: ubuntu:22.04
     environment:
       - DISPLAY=novnc:0.0
     depends_on:

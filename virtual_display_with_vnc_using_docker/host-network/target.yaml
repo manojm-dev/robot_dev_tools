@@ -1,0 +1,11 @@
+services:
+  # has requirement to only be in host mode only
+  test:
+    image: ubuntu:22.04
+    
+    network_mode: host
+
+    environment:
+      - DISPLAY=${VNC_CONTAINER_IP}
+
+    entrypoint: sleep infinity
