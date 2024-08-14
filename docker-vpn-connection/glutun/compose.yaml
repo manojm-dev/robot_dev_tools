@@ -23,7 +23,7 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=custom
       - VPN_TYPE=wireguard
-      - FIREWALL=off
+      - FIREWALL=off #if firewall on you should allow the server eg: iptables -A INPUT -s 10.13.13.1 -j ACCEPT && iptables -A OUTPUT -d 10.13.13.1 -j ACCEPT
 
 networks:
   vpn:
