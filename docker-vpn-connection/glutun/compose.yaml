@@ -3,13 +3,13 @@ services:
   # Type 1
   ## To add tartget-services-orange to a particular vpn network with a specified ip
   target-services-orange:
-    image: target_image
+    image: ubuntu:22.04
     network_mode: service:gluetun
 
   # Type 2
   ## To add target-service-apple to a particular vpn network with connectivity but have diff ip
   target-services-apple:
-    image: target_image
+    image: ubuntu:22.04
     networks:
       - vpn
   
@@ -19,11 +19,11 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - config/:/gluetun/wireguard/:ro
+      - ./config/:/gluetun/wireguard/:ro
     environment:
       - VPN_SERVICE_PROVIDER=custom
       - VPN_TYPE=wireguard
-      - FIREWALL=off #if firewall on you should allow the server eg: iptables -A INPUT -s 10.13.13.1 -j ACCEPT && iptables -A OUTPUT -d 10.13.13.1 -j ACCEPT
+      - FIREWALL=off #if firewall on you should allow the server eg: iptables -A INPUT -s x.x.x.x -j ACCEPT && iptables -A OUTPUT -d x.x.x.x -j ACCEPT
 
 networks:
   vpn:
